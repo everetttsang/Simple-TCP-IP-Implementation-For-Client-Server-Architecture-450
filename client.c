@@ -11,7 +11,7 @@
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
-#define PORT "3490" // the port client will be connecting to
+#define PORT "21236" // the port client will be connecting to
 #define MAXDATASIZE 100 // max number of bytes we can get at once
 // get sockaddr, IPv4 or IPv6:
 void *get_in_addr(struct sockaddr *sa)

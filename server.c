@@ -13,7 +13,7 @@
 #include <arpa/inet.h>
 #include <sys/wait.h>
 #include <signal.h>
-#define PORT "3490" // the port users will be connecting to
+#define PORT "21236" // the port users will be connecting to
 #define BACKLOG 10 // how many pending connections queue will hold
 #define MAXDATASIZE 100
 
@@ -46,6 +46,7 @@ int main(int argc, char *argv[])
   char name[10];
   strcpy(name,argv[1]);
   char client[10];
+  int getsock_check;
 
   char buf[MAXDATASIZE];
   int numbytes;
@@ -81,7 +82,8 @@ int main(int argc, char *argv[])
       if (p == NULL) {
         fprintf(stderr, "server: failed to bind\n");
         exit(1);
-      }if (listen(sockfd, BACKLOG) == -1) {
+      }
+      if (listen(sockfd, BACKLOG) == -1) {
         perror("listen");
         exit(1);
       }
@@ -100,6 +102,9 @@ int main(int argc, char *argv[])
           perror("accept");
           continue;
         }
+
+
+
         inet_ntop(their_addr.ss_family,
           get_in_addr((struct sockaddr *)&their_addr),
           s, sizeof s);
