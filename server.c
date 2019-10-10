@@ -98,20 +98,13 @@ int main(int argc, char *argv[])
       while(1) { // main accept() loop
         sin_size = sizeof their_addr;
         new_fd = accept(sockfd, (struct sockaddr *)&their_addr, &sin_size);
-        // if (new_fd == -1) {
-        //   perror("accept");
-        //   continue;
-        // }
+
 
 
 
         inet_ntop(their_addr.ss_family,
           get_in_addr((struct sockaddr *)&their_addr),
           s, sizeof s);
-
-          // if (!fork()) { // this is the child process
-            // close(sockfd); // child doesn't need the listener
-
 
             //receive first greeting from client
             if ((numbytes = recv (new_fd, buf, MAXDATASIZE-1, 0))== -1){
@@ -135,8 +128,6 @@ int main(int argc, char *argv[])
 
           }
 
-            // exit(0);
-          // }
 
         }
         close (sockfd);

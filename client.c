@@ -61,12 +61,12 @@ int main(int argc, char *argv[])
     printf("The client is up and running\n");
     freeaddrinfo(servinfo); // all done with this structure
 
-    // if(!fork()){
+
       if (send (sockfd, name,10, 0)==-1)
       perror("send");
 
       printf("Client sent greetings to the server\n");
-    // }
+
     if ((numbytes = recv(sockfd, buf, MAXDATASIZE-1, 0)) == -1) {
       perror("recv");
 
