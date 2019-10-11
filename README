@@ -1,0 +1,6 @@
+Client connects to a server using the destination port 21236.
+The server's source port, 21236 queries for the first connection.
+Server connects to client and dynamically obtains client's source port.
+Using simple communication over an open socket, client and server communicate.
+Framework code obtained from Beej's tutorial provided in the instructions.
+Modifications added to simulate two way communication between server and client.
